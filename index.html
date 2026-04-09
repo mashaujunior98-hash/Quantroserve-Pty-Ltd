@@ -272,29 +272,6 @@
     margin-top: 28px;
   }
 
-  .hero-stats {
-    position: absolute; bottom: 0; right: 0; z-index: 2;
-    display: flex;
-  }
-  .stat-box {
-    padding: 32px 44px;
-    background: rgba(17,17,17,0.8);
-    border-top: 1px solid rgba(26,191,170,0.2);
-    border-left: 1px solid rgba(26,191,170,0.2);
-    animation: fadeUp 0.8s 0.6s ease both;
-    text-align: center;
-  }
-  .stat-box + .stat-box { border-left: 1px solid rgba(26,191,170,0.1); }
-  .stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 44px; font-weight: 900; color: var(--teal);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: rgba(255,255,255,0.45); margin-top: 6px;
-  }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -891,7 +868,6 @@
     nav { padding: 16px 32px; }
     nav ul { gap: 20px; }
     .hero-content { padding: 0 32px 80px; }
-    .hero-stats { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 20px; }
     #about { grid-template-columns: 1fr; }
     .about-image { height: 380px; }
     .about-text { padding: 60px 40px; }
@@ -939,8 +915,6 @@
     .hero h1 { font-size: 52px; }
     .hero-content { padding: 0 24px 40px; }
     .hero-cred { grid-template-columns: 1fr; }
-    .hero-stats { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 40px; }
-    .stat-box { padding: 24px 20px; }
     .services-grid { grid-template-columns: 1fr; }
     .capability-grid { grid-template-columns: 1fr; }
     .appoint-grid { grid-template-columns: 1fr; }
@@ -1003,20 +977,6 @@
       <span>CIDB Registered</span>
       <span>ECA Member</span>
       <span>Level 1 Contributor</span>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-box">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">6</div>
-      <div class="stat-label">Service Disciplines</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Client Focus</div>
     </div>
   </div>
 </section>
