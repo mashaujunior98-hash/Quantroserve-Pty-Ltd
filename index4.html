@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuantroServe | Construction & Maintenance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #1ABFAA;
+    --teal-dark: #0d9e8c;
+    --teal-light: #2ed4be;
+    --black: #111111;
+    --dark: #1a1a1a;
+    --dark2: #222222;
+    --mid: #333333;
+    --grey: #888888;
+    --light-grey: #f4f4f2;
+    --white: #ffffff;
+  }
+
+  
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 20px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: #515151eb;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,191,170,0.15);
+    transition: padding 0.3s;
+  }
+  nav .logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  nav .logo img { height: 36px; }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--teal); }
+  nav .nav-cta {
+    background: var(--teal);
+    color: var(--black) !important;
+    padding: 9px 22px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  nav .nav-cta:hover { background: var(--teal-light); color: var(--black) !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    height: 100vh; min-height: 700px;
+    background: var(--dark);
+    position: relative;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(26,191,170,0.12) 0%, transparent 50%),
+      linear-gradient(to bottom, rgba(17,17,17,0.3) 0%, rgba(17,17,17,0.85) 100%);
+    z-index: 1;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(26,191,170,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,191,170,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+  @keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(60px); }
+  }
+
+  /* Big construction photo overlay */
+  .hero-photo {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800') center/cover no-repeat;
+    opacity: 0.22;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 60px 100px;
+    max-width: 900px;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 14px; margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(64px, 9vw, 130px);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 17px; font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px; line-height: 1.65;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-actions {
+    margin-top: 44px; display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--black);
+    padding: 16px 40px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    border: none; cursor: pointer; text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 40px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+  .hero-stats {
+    position: absolute; bottom: 0; right: 0; z-index: 2;
+    display: flex;
+  }
+  .stat-box {
+    padding: 32px 44px;
+    background: rgba(17,17,17,0.8);
+    border-top: 1px solid rgba(26,191,170,0.2);
+    border-left: 1px solid rgba(26,191,170,0.2);
+    animation: fadeUp 0.8s 0.6s ease both;
+    text-align: center;
+  }
+  .stat-box + .stat-box { border-left: 1px solid rgba(26,191,170,0.1); }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 44px; font-weight: 900; color: var(--teal);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); margin-top: 6px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-bar {
+    background: var(--teal);
+    padding: 14px 0;
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee 25s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-track span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--black);
+    padding: 0 40px;
+  }
+  .marquee-track span::before {
+    content: '◆'; margin-right: 40px; opacity: 0.4;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 650px;
+  }
+  .about-image {
+    position: relative; overflow: hidden;
+    background: var(--dark2);
+  }
+  .about-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.7;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  .about-image:hover img { transform: scale(1.04); opacity: 0.85; }
+  .about-image-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(17,17,17,0.9) 0%, transparent 60%);
+    padding: 40px;
+  }
+  .about-image-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 6px 14px;
+  }
+  .about-text {
+    background: var(--light-grey);
+    padding: 90px 72px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 30px; height: 2px; background: var(--teal);
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(38px, 4vw, 58px);
+    font-weight: 800; line-height: 1.05; text-transform: uppercase;
+    color: var(--black); letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .section-title strong { color: var(--teal); font-weight: 900; }
+  .body-text {
+    font-size: 16px; line-height: 1.75; color: #444;
+    margin-bottom: 16px;
+  }
+  .about-details {
+    margin-top: 36px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .detail-item {
+    padding: 16px 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .detail-item strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--grey); margin-bottom: 4px;
+  }
+  .detail-item span { font-size: 14px; font-weight: 600; color: var(--black); }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--dark); padding: 120px 60px; }
+  .services-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 72px;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .services-header .section-label { color: var(--teal); }
+  .services-header .section-title { color: var(--white); margin-bottom: 0; }
+  .services-header p { font-size: 15px; color: rgba(255,255,255,0.45); max-width: 360px; line-height: 1.6; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--dark2);
+    padding: 48px 40px;
+    position: relative; overflow: hidden;
+    cursor: default;
+    transition: background 0.3s;
+    border: 1px solid rgba(26,191,170,0.06);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    height: 3px; width: 0;
+    background: var(--teal);
+    transition: width 0.4s ease;
+  }
+  .service-card:hover { background: #1e1e1e; }
+  .service-card:hover::before { width: 100%; }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(26,191,170,0.1);
+    border: 1px solid rgba(26,191,170,0.25);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    font-size: 22px;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-icon { background: rgba(26,191,170,0.2); }
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px; font-weight: 700; text-transform: uppercase;
+    color: var(--white); letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+  .service-card p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+  .service-list {
+    margin-top: 20px; list-style: none;
+  }
+  .service-list li {
+    font-size: 13px; color: rgba(255,255,255,0.35);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding-left: 14px; position: relative;
+  }
+  .service-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--teal); font-size: 11px;
+  }
+
+  /* ─── VALUES ─── */
+  #values { padding: 120px 60px; background: var(--white); }
+  .values-inner {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+    align-items: start;
+  }
+  .values-left .section-title { font-size: clamp(40px, 4vw, 60px); }
+  .values-left p { font-size: 15px; color: #666; line-height: 1.7; margin-top: 20px; }
+  .values-left a {
+    display: inline-block; margin-top: 36px;
+  }
+  .values-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  }
+  .value-card {
+    padding: 40px 36px;
+    background: var(--light-grey);
+    position: relative;
+    transition: background 0.25s;
+  }
+  .value-card:hover { background: #ebebea; }
+  .value-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 64px; font-weight: 900;
+    color: rgba(26,191,170,0.12);
+    line-height: 1;
+    position: absolute; top: 24px; right: 24px;
+    pointer-events: none;
+  }
+  .value-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; text-transform: uppercase;
+    color: var(--black); letter-spacing: 0.5px; margin-bottom: 12px;
+  }
+  .value-card p { font-size: 14px; color: #666; line-height: 1.65; }
+  .value-teal-card {
+    background: var(--teal); grid-column: span 2;
+    padding: 40px 36px;
+    display: flex; align-items: center; gap: 48px;
+    transition: background 0.25s;
+  }
+  .value-teal-card:hover { background: var(--teal-light); }
+  .value-teal-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px; font-weight: 900; text-transform: uppercase;
+    color: var(--black); white-space: nowrap;
+  }
+  .value-teal-card p { font-size: 15px; color: rgba(0,0,0,0.65); line-height: 1.6; }
+
+  /* ─── WHY US ─── */
+  #why {
+    background: var(--dark);
+    padding: 120px 60px;
+    position: relative; overflow: hidden;
+  }
+  #why::before {
+    content: 'QS';
+    position: absolute; right: -40px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 380px; font-weight: 900; color: rgba(26,191,170,0.04);
+    line-height: 1; pointer-events: none; user-select: none;
+  }
+  .why-header { max-width: 700px; margin-bottom: 72px; }
+  .why-header .section-title { color: var(--white); }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  }
+  .why-item {
+    display: flex; gap: 28px; align-items: flex-start;
+    padding: 48px 48px 48px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-right: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+  }
+  .why-item:nth-child(even) { padding: 48px 0 48px 48px; border-right: none; }
+  .why-check {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border: 1px solid rgba(26,191,170,0.4);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal); font-size: 18px;
+  }
+  .why-item h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; text-transform: uppercase;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .why-item p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.65; }
+
+  /* ─── METHODOLOGY ─── */
+  #process { padding: 120px 60px; background: var(--light-grey); }
+  .process-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+  .process-header .section-label { justify-content: center; }
+  .process-header .section-label::before { display: none; }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .process-step {
+    background: var(--white);
+    padding: 48px 36px;
+    position: relative;
+    transition: background 0.25s, transform 0.25s;
+    border-bottom: 3px solid transparent;
+  }
+  .process-step:hover {
+    background: var(--dark);
+    border-bottom-color: var(--teal);
+    transform: translateY(-4px);
+  }
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 72px; font-weight: 900;
+    color: rgba(26,191,170,0.12);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .process-step:hover .step-num { color: rgba(26,191,170,0.2); }
+  .process-step h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700; text-transform: uppercase;
+    color: var(--black); letter-spacing: 0.5px; margin-bottom: 14px;
+    transition: color 0.25s;
+  }
+  .process-step:hover h4 { color: var(--white); }
+  .process-step p { font-size: 14px; color: #666; line-height: 1.65; transition: color 0.25s; }
+  .process-step:hover p { color: rgba(255,255,255,0.5); }
+  .step-bullets { margin-top: 16px; list-style: none; }
+  .step-bullets li { font-size: 13px; color: #888; padding: 3px 0; transition: color 0.25s; }
+  .step-bullets li::before { content: '— '; color: var(--teal); }
+  .process-step:hover .step-bullets li { color: rgba(255,255,255,0.35); }
+
+  /* ─── CTA BANNER ─── */
+  #cta {
+    background: var(--teal);
+    padding: 100px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 48px; flex-wrap: wrap;
+    position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute; right: -100px; top: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.07);
+  }
+  #cta::after {
+    content: '';
+    position: absolute; left: 200px; bottom: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+  }
+  .cta-text h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(42px, 5vw, 72px); font-weight: 900;
+    text-transform: uppercase; color: var(--black);
+    line-height: 0.95; letter-spacing: -1px;
+  }
+  .cta-text p { font-size: 16px; color: rgba(0,0,0,0.6); margin-top: 16px; max-width: 480px; line-height: 1.6; }
+  .cta-contacts { display: flex; gap: 32px; flex-wrap: wrap; z-index: 1; }
+  .cta-item { display: flex; flex-direction: column; gap: 4px; }
+  .cta-item span:first-child { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.5); }
+  .cta-item a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--black); text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-item a:hover { opacity: 0.6; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    padding: 72px 60px 40px;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px; padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand img { height: 32px; margin-bottom: 20px; }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 280px; }
+  .footer-col h5 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a {
+    font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--teal); }
+  .footer-col iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.2); }
+  .footer-bottom a { color: var(--teal); text-decoration: none; }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 32px; }
+    nav ul { gap: 20px; }
+    .hero-content { padding: 0 32px 80px; }
+    .hero-stats { position: relative; }
+    #about { grid-template-columns: 1fr; }
+    .about-image { height: 380px; }
+    .about-text { padding: 60px 40px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .values-inner { grid-template-columns: 1fr; gap: 48px; }
+    #values { padding: 80px 40px; }
+    #services { padding: 80px 40px; }
+    #why { padding: 80px 40px; }
+    #process { padding: 80px 40px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 700px) {
+    nav ul { display: none; }
+    .hero h1 { font-size: 52px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-item, .why-item:nth-child(even) { padding: 32px 0; border-right: none; }
+    .values-grid { grid-template-columns: 1fr; }
+    .value-teal-card { grid-column: span 1; flex-direction: column; gap: 16px; }
+    .process-steps { grid-template-columns: 1fr; }
+    #cta { padding: 72px 32px; }
+    footer { padding: 60px 32px 32px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .footer-col iframe { height: 250px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <!-- SVG recreation of the QuantroServe Q symbol + text -->
+    <svg width="160" height="36" viewBox="0 0 300 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Q symbol -->
+     <img src="/q2.png" alt="">
+    </svg>
+  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#values">Values</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#cta" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Construction & Maintenance · South Africa</div>
+    <h1 class="hero">Built on<br><span>Precision.</span><br>Delivered<br>with Purpose.</h1>
+    <p class="hero-sub">A multi-disciplinary construction and infrastructure company committed to quality, safety, and results — for both public and private sector clients.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#cta" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-box">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Service Disciplines</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Client Focus</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>General Construction</span>
+    <span>Civil Engineering</span>
+    <span>Electrical Infrastructure</span>
+    <span>Maintenance & Facilities</span>
+    <span>Fencing & Security</span>
+    <span>Project Management</span>
+    <span>General Construction</span>
+    <span>Civil Engineering</span>
+    <span>Electrical Infrastructure</span>
+    <span>Maintenance & Facilities</span>
+    <span>Fencing & Security</span>
+    <span>Project Management</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900" alt="Construction work" loading="lazy"/>
+    <div class="about-image-overlay">
+      <span class="about-image-badge">Registered: Quantroserve (Pty) Ltd</span>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="reveal">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">More Than <strong>Contractors.</strong><br>We're Partners.</h2>
+      <p class="body-text">QuantroServe (Pty) Ltd is a premium, multi-disciplinary construction and infrastructure solutions company based in South Africa. We integrate technical expertise with disciplined project management to deliver on time, within budget, and to the highest standards.</p>
+      <p class="body-text">We operate as a full-service contractor, supporting both standalone projects and integrated multi-service contracts — giving clients one accountable partner across multiple disciplines.</p>
+    </div>
+    <div class="about-details reveal reveal-delay-2">
+      <div class="detail-item">
+        <strong>Location</strong>
+        <span>5 Eglin Road, Sunninghill, JHB</span>
+      </div>
+      <div class="detail-item">
+        <strong>Phone</strong>
+        <span>011 568 7147</span>
+      </div>
+      <div class="detail-item">
+        <strong>Email</strong>
+        <span>info@quantroserve.co.za</span>
+      </div>
+      <div class="detail-item">
+        <strong>Website</strong>
+        <span>www.quantroserve.co.za</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title" style="color:var(--white)">Our Service<br><strong>Offerings</strong></h2>
+    </div>
+    <p>A fully integrated range of construction and infrastructure services — delivered under one roof, by one accountable team.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🏗️</div>
+      <h3>General Construction</h3>
+      <p>Residential, commercial, and industrial builds delivered with precision from foundation to finishing.</p>
+      <ul class="service-list">
+        <li>Residential & housing developments</li>
+        <li>Commercial & industrial facilities</li>
+        <li>Renovations & refurbishments</li>
+        <li>Turnkey construction solutions</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">🛣️</div>
+      <h3>Civil Engineering</h3>
+      <p>Earthworks, roads, drainage, and infrastructure development for every type of project.</p>
+      <ul class="service-list">
+        <li>Bulk earthworks & site preparation</li>
+        <li>Road construction & rehabilitation</li>
+        <li>Stormwater & sewer systems</li>
+        <li>Concrete structures & paving</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">⚡</div>
+      <h3>Electrical Services</h3>
+      <p>LV/MV electrical installations, backup power, compliance certification, and energy-efficient systems.</p>
+      <ul class="service-list">
+        <li>Low & medium voltage installations</li>
+        <li>Backup power systems</li>
+        <li>Energy-efficient lighting</li>
+        <li>Compliance & certification</li>
+      </ul>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔧</div>
+      <h3>Maintenance & Facilities</h3>
+      <p>Planned and reactive maintenance programmes to protect and extend the life of your assets.</p>
+      <ul class="service-list">
+        <li>Planned preventative maintenance</li>
+        <li>Reactive maintenance services</li>
+        <li>Asset lifecycle management</li>
+        <li>Infrastructure refurbishments</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">🔒</div>
+      <h3>Fencing & Security</h3>
+      <p>Comprehensive perimeter and security solutions for residential, commercial, and industrial sites.</p>
+      <ul class="service-list">
+        <li>Electric & palisade fencing</li>
+        <li>Access control systems</li>
+        <li>Gate automation</li>
+        <li>Security infrastructure</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">📋</div>
+      <h3>Project Management</h3>
+      <p>End-to-end project oversight — from feasibility and budgeting to handover and compliance.</p>
+      <ul class="service-list">
+        <li>Feasibility & cost estimation</li>
+        <li>Procurement & contract management</li>
+        <li>Risk management & QA</li>
+        <li>Stakeholder coordination</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="values-inner">
+    <div class="reveal">
+      <div class="section-label">Our Values</div>
+      <h2 class="section-title">The Way<br>We <strong>Work</strong></h2>
+      <p>Our operations and culture are guided by a strong set of principles that define how we conduct business and deliver every project.</p>
+      <a href="#cta" class="btn-primary">Partner With Us</a>
+    </div>
+    <div class="values-grid reveal reveal-delay-1">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <h4>Excellence & Quality</h4>
+        <p>Superior workmanship and the highest standards on every project, every time — without compromise.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <h4>Integrity & Transparency</h4>
+        <p>Honest, ethical business practices with transparent communication at every stage of engagement.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <h4>Accountability</h4>
+        <p>Full ownership of commitments and outcomes. Results-driven with clear objectives and benchmarks.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">04</div>
+        <h4>Safety & Compliance</h4>
+        <p>Health, safety, and environmental responsibility are non-negotiable across all our operations.</p>
+      </div>
+      <div class="value-teal-card">
+        <h4>Client-Centric Approach</h4>
+        <p>We place clients at the centre of everything — understanding objectives, delivering tailored solutions, and building long-term relationships based on trust and value creation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-header reveal">
+    <div class="section-label" style="color:var(--teal)">Why Choose Us</div>
+    <h2 class="section-title" style="color:var(--white)">Precision-Driven.<br><strong>Client-Focused.</strong></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item reveal">
+      <div class="why-check">✓</div>
+      <div>
+        <h4>Integrated Multi-Disciplinary Expertise</h4>
+        <p>One accountable partner across construction, civil, electrical, maintenance, fencing, and project management — reducing costs and improving coordination.</p>
+      </div>
+    </div>
+    <div class="why-item reveal reveal-delay-1">
+      <div class="why-check">✓</div>
+      <div>
+        <h4>Experienced & Professional Team</h4>
+        <p>Skilled project managers, technical specialists, and a reliable subcontractor network — backed by strong supplier relationships and a scalable workforce model.</p>
+      </div>
+    </div>
+    <div class="why-item reveal">
+      <div class="why-check">✓</div>
+      <div>
+        <h4>Quality Assurance & Safety</h4>
+        <p>Strict quality control processes, comprehensive H&S protocols, continuous monitoring, and full regulatory compliance at every site.</p>
+      </div>
+    </div>
+    <div class="why-item reveal reveal-delay-1">
+      <div class="why-check">✓</div>
+      <div>
+        <h4>Reliable & Timely Delivery</h4>
+        <p>We understand how critical timelines are. Our structured methodology ensures projects are completed on schedule without sacrificing quality.</p>
+      </div>
+    </div>
+    <div class="why-item reveal">
+      <div class="why-check">✓</div>
+      <div>
+        <h4>Sustainability Commitment</h4>
+        <p>Efficient resource use, waste minimisation, energy-efficient solutions, and environmentally responsible construction practices across all projects.</p>
+      </div>
+    </div>
+    <div class="why-item reveal reveal-delay-1">
+      <div class="why-check">✓</div>
+      <div>
+        <h4>CIDB & ECA Registered</h4>
+        <p>Fully compliant and registered with the Construction Industry Development Board (CIDB) and Electrical Contractors Association — Level 1 contributor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header reveal">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Project Delivery<br><strong>Methodology</strong></h2>
+    <p class="body-text">A structured, disciplined, and results-oriented approach — systematic yet adaptable to every project's unique requirements.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-num">01</div>
+      <h4>Planning & Feasibility</h4>
+      <p>Every project starts with thorough scoping, technical assessments, and financial feasibility studies.</p>
+      <ul class="step-bullets">
+        <li>Project scoping</li>
+        <li>Technical assessments</li>
+        <li>Financial feasibility</li>
+      </ul>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <h4>Design & Coordination</h4>
+      <p>Engineering coordination and design alignment with full regulatory compliance from the outset.</p>
+      <ul class="step-bullets">
+        <li>Engineering coordination</li>
+        <li>Design alignment</li>
+        <li>Regulatory compliance</li>
+      </ul>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <h4>Budgeting</h4>
+      <p>Detailed cost planning, supplier sourcing, and contract management to ensure financial control.</p>
+      <ul class="step-bullets">
+        <li>Cost planning</li>
+        <li>Supplier sourcing</li>
+        <li>Contracting</li>
+      </ul>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num">04</div>
+      <h4>Execution</h4>
+      <p>Site establishment, construction and installation, with efficient resource management throughout.</p>
+      <ul class="step-bullets">
+        <li>Site establishment</li>
+        <li>Construction & installation</li>
+        <li>Resource management</li>
+      </ul>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-num">05</div>
+      <h4>Monitoring & Control</h4>
+      <p>Ongoing progress tracking, quality inspections, and cost control to keep every project on track.</p>
+      <ul class="step-bullets">
+        <li>Progress tracking</li>
+        <li>Quality inspections</li>
+        <li>Cost control</li>
+      </ul>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-num">06</div>
+      <h4>Project Close-Out</h4>
+      <p>Thorough testing, final inspections, and complete handover documentation for every project.</p>
+      <ul class="step-bullets">
+        <li>Testing & commissioning</li>
+        <li>Final inspections</li>
+        <li>Handover documentation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-text reveal">
+    <h2>Ready to Build<br>Something Great?</h2>
+    <p>Whether you're planning a new project, exploring partnerships, or need further information — our team is ready to assist.</p>
+    <a href="mailto:info@quantroserve.co.za" class="btn-primary" style="margin-top:32px; background:var(--black); color:var(--white);">Send Us a Message</a>
+  </div>
+  <div class="cta-contacts reveal reveal-delay-2">
+    <div class="cta-item">
+      <span>Phone</span>
+      <a href="tel:+27115687147">+27 11 568 7147</a>
+    </div>
+    <div class="cta-item">
+      <span>Mobile</span>
+      <a href="tel:+27615804871">+27 61 580 4871</a>
+    </div>
+    <div class="cta-item">
+      <span>Email</span>
+      <a href="mailto:info@quantroserve.co.za">info@quantroserve.co.za</a>
+    </div>
+    <div class="cta-item">
+      <span>Address</span>
+      <a href="#">5 Eglin Rd, Sunninghill, JHB</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <svg width="160" height="32" viewBox="0 0 300 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="42" height="50" rx="10" fill="#1ABFAA"/>
+        <rect x="18" y="4" width="14" height="44" rx="2" fill="#111111"/>
+        <path d="M4 46 Q4 58 16 60 Q28 62 42 54" stroke="#222222" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <text x="60" y="48" font-family="Barlow Condensed, sans-serif" font-size="46" font-weight="700" fill="#ffffff" letter-spacing="-1">uantroServe</text>
+      </svg>
+      <p style="margin-top:20px">A premium, multi-disciplinary construction and infrastructure solutions company based in South Africa.</p>
+      <p style="margin-top:12px; font-size:12px; color:rgba(255,255,255,0.2)">CIDB Registered · ECA Member · Level 1 Contributor</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">General Construction</a></li>
+        <li><a href="#services">Civil Engineering</a></li>
+        <li><a href="#services">Electrical Services</a></li>
+        <li><a href="#services">Maintenance</a></li>
+        <li><a href="#services">Fencing & Security</a></li>
+        <li><a href="#services">Project Management</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#values">Our Values</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#process">Methodology</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+27115687147">011 568 7147</a></li>
+        <li><a href="mailto:info@quantroserve.co.za">info@quantroserve.co.za</a></li>
+        <li><a href="#">5 Eglin Rd, Sunninghill</a></li>
+        <li><a href="#">Johannesburg, 2195</a></li>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.9865804809165!2d28.068939399999998!3d-26.0339951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957233aec2ed29%3A0x9c78b7f598544f37!2s5%20Eglin%20Rd%2C%20Sunninghill%2C%20Sandton%2C%202157!5e0!3m2!1sen!2sza!4v1775742553406!5m2!1sen!2sza" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Quantroserve (Pty) Ltd. All rights reserved.</p>
+    <p>Built with precision · <a href="#">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = window.scrollY > 60 ? '12px 60px' : '20px 60px';
+  });
+</script>
+</body>
+</html>
